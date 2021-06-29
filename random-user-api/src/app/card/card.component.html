@@ -1,14 +1,38 @@
 <div class="card m-offset-2">
-  <div class="card-body text-center">
+  <div class="card-header text-center">
     <img [src]="user?.picture?.large" alt="" width="150" height="150"
-         class="rounded-circle img-thumbnail border-primary"
+         class="rounded-circle img-thumbnail border-tertiary"
     >
+  </div>
+  <div class="card-body text-center">
     <div class="card-title text-primary">
       <h3>
         <span class="px-1">{{user?.name?.title}}</span>
         <span class="px-1">{{user?.name?.first}}</span>
         <span class="px-1">{{user?.name?.last}}</span>
       </h3>
+    </div>
+    <div class="card-text">
+      <ul class="list-group list-group-horizontal justify-content-center">
+        <li class="list-group-item">
+          <a href="#"><img src="./assets/icons/svg/misc/user.svg" alt=""></a>
+        </li>
+        <li class="list-group-item">
+          <a href="#"><img src="./assets/icons/svg/misc/email.svg" alt=""></a>
+        </li>
+        <li class="list-group-item">
+          <a href="#"><img src="./assets/icons/svg/misc/calendar.svg" alt=""></a>
+        </li>
+        <li class="list-group-item">
+          <a href="#"><img src="./assets/icons/svg/misc/map-location.svg" alt=""></a>
+        </li>
+        <li class="list-group-item">
+          <a href="#"><img src="./assets/icons/svg/misc/call.svg" alt=""></a>
+        </li>
+        <li class="list-group-item">
+          <a href="#"><img src="./assets/icons/svg/misc/locked.svg" alt=""></a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
