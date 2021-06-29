@@ -1,0 +1,14 @@
+<div class="card m-offset-2">
+  <div class="card-body text-center">
+    <img [src]="user?.picture?.large" alt="" width="150" height="150"
+         class="rounded-circle img-thumbnail border-primary"
+    >
+    <div class="card-title text-primary">
+      <h3>
+        <span class="px-1">{{user?.name?.title}}</span>
+        <span class="px-1">{{user?.name?.first}}</span>
+        <span class="px-1">{{user?.name?.last}}</span>
+      </h3>
+    </div>
+  </div>
+</div>

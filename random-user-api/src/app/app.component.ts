@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {map} from "rxjs/operators";
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +8,19 @@ import {map} from "rxjs/operators";
 })
 
 export class AppComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  user: any;
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.fetchPosts();
   }
 
   private fetchPosts() {
-    this.http
-      .get('https://randomuser.me/api/')
-      .subscribe(posts => {
-        // ...
-        console.log(posts);
-      });
+    this.userService.getUser().subscribe((user: any) => {
+    this.user = user.results[0];
+    console.log('Successfully loaded...');
+  }, (err) => {
+    console.log('Error, Please reload...');
+  });
   }
 }

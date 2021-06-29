@@ -1,0 +1,11 @@
+header {
+  height: 300px;
+  background-color: #2C2E31;
+  margin: 0 -15px;
+}
+
+@for $i from 0 through 12 {
+  .vert-offset-top-#{$i} {
+    margin-top: -#{$i}em;
+  }
+}
