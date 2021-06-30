@@ -1,35 +1,32 @@
 <div class="card m-offset-2">
-  <div class="card-header text-center">
-    <img [src]="user?.picture?.large" alt="" width="150" height="150"
+ <div class="card-header text-center">
+    <img [src]="user?.picture" alt="" width="150" height="150"
          class="rounded-circle img-thumbnail border-tertiary"
     >
   </div>
-  <div class="card-body text-center">
-    <div class="card-title text-primary">
-      <h3>
-        <span class="px-1">{{user?.name?.title}}</span>
-        <span class="px-1">{{user?.name?.first}}</span>
-        <span class="px-1">{{user?.name?.last}}</span>
-      </h3>
+   <div class="card-body text-center">
+    <div class="card-title">
+      <span>{{ subTitle }}</span>
+      <h3>{{ titleValue }}</h3>
     </div>
     <div class="card-text">
       <ul class="list-group list-group-horizontal justify-content-center">
-        <li class="list-group-item">
+        <li (mouseenter)="changeTitle('Hi, My name is', user?.name)" class="list-group-item">
           <a href="#"><img src="./assets/icons/svg/misc/user.svg" alt=""></a>
         </li>
-        <li class="list-group-item">
+        <li (mouseenter)="changeTitle('My email address is', user?.email)" class="list-group-item">
           <a href="#"><img src="./assets/icons/svg/misc/email.svg" alt=""></a>
         </li>
-        <li class="list-group-item">
+        <li (mouseenter)="changeTitle('My birthday is', user?.dob)" class="list-group-item">
           <a href="#"><img src="./assets/icons/svg/misc/calendar.svg" alt=""></a>
         </li>
-        <li class="list-group-item">
+        <li (mouseenter)="changeTitle('My address is', user?.address)" class="list-group-item">
           <a href="#"><img src="./assets/icons/svg/misc/map-location.svg" alt=""></a>
         </li>
-        <li class="list-group-item">
+        <li (mouseenter)="changeTitle('My phone number is', user?.phone)" class="list-group-item">
           <a href="#"><img src="./assets/icons/svg/misc/call.svg" alt=""></a>
         </li>
-        <li class="list-group-item">
+        <li (mouseenter)="changeTitle('My password is', user?.password)" class="list-group-item">
           <a href="#"><img src="./assets/icons/svg/misc/locked.svg" alt=""></a>
         </li>
       </ul>
