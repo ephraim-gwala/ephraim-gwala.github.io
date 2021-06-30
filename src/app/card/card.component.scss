@@ -1,0 +1,21 @@
+.card-header {
+  background-color: #F9F9F9;
+  height: 110px;
+  margin-bottom: 50px;
+}
+
+.list-group-horizontal {
+
+  .list-group-item {
+    border: 0;
+    border-radius: 0 !important;
+
+    &:hover {
+      background: #439539;
+    }
+    img {
+      display: inline-block;
+      height: 20px;
+    }
+  }
+}
