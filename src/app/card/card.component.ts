@@ -22,14 +22,15 @@ export class CardComponent implements OnInit, PipeTransform {
 
   titleValue: any;
   subTitle: any;
+  result: any;
   img: any;
 
   constructor(private userService: UserService, private datePipe: DatePipe) {
     this.userService.getUser().subscribe((user: any) => {
-      this.user = user.results[0];
+      this.result = user.results[0];
       this.subTitle = "Hi, My name is";
-      this.titleValue = this.user.name.first + ' ' + this.user.name.last;
-      this.img = this.user.picture.large;
+      this.titleValue = this.result.name.first + ' ' + this.result.name.last;
+      this.img = this.result.picture.large;
     }, (err) => {
       console.log('Error, Please reload...');
     });

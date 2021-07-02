@@ -37,13 +37,4 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
-  private fetchPosts() {
-    this.userService.getUser().subscribe((user: any) => {
-      this.user = user.results[0];
-      console.log('Successfully loaded...');
-    }, (err) => {
-      console.log('Error, Please reload...');
-    });
-  }
 }
