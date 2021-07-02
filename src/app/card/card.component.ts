@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, Pipe, PipeTransform} from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { UserService } from './../services/user.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -15,22 +16,26 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ])
   ],
 })
-export class CardComponent implements OnInit, OnChanges, PipeTransform {
+export class CardComponent implements OnInit, PipeTransform {
   @Input() user: any;
   @Output('fetchPosts') fetchPosts: EventEmitter<any> = new EventEmitter();
 
   titleValue: any;
   subTitle: any;
+  img: any;
 
-  constructor(private datePipe: DatePipe) { }
-
-  ngOnInit(): void {
+  constructor(private userService: UserService, private datePipe: DatePipe) {
+    this.userService.getUser().subscribe((user: any) => {
+      this.user = user.results[0];
+      this.subTitle = "Hi, My name is";
+      this.titleValue = this.user.name.first + ' ' + this.user.name.last;
+      this.img = this.user.picture.large;
+    }, (err) => {
+      console.log('Error, Please reload...');
+    });
   }
 
-  ngOnChanges() {
-    this.subTitle = "Hi, My name is";
-    this.titleValue = this.user.name;
-// console.log(this.user);
+  ngOnInit(): void {
   }
 
   transform(value: any, ...args: any[]): any {
@@ -41,5 +46,4 @@ export class CardComponent implements OnInit, OnChanges, PipeTransform {
     this.titleValue = val;
     this.subTitle = title;
   }
-
 }

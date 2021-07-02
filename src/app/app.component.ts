@@ -27,9 +27,6 @@ export class AppComponent implements OnInit {
       for(let i=0; i<this.data.length; i++){
         this.randomUser = this.data[i]; //use i instead of 0
       }
-      console.log(this.randomUser);
-
-      console.log('Successfully loaded...');
     }, (err) => {
       console.log('Error, Please reload...');
     });
@@ -43,10 +40,10 @@ export class AppComponent implements OnInit {
 
   private fetchPosts() {
     this.userService.getUser().subscribe((user: any) => {
-    this.user = user.results[0];
-    console.log('Successfully loaded...');
-  }, (err) => {
-    console.log('Error, Please reload...');
-  });
+      this.user = user.results[0];
+      console.log('Successfully loaded...');
+    }, (err) => {
+      console.log('Error, Please reload...');
+    });
   }
 }
